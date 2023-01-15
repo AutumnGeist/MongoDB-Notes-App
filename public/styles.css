@@ -1,0 +1,16 @@
+.nav-link:hover {
+    cursor: pointer;  
+    color: gold !important; 
+}
+#italic {
+    font-style:italic
+}
+/* Show line breaks within the note body */
+.card-text {
+    white-space: pre-line;
+}
+
+
+
+
+

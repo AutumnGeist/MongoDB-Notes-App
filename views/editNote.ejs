@@ -1,0 +1,32 @@
+<%- include('partials/_header') %>
+
+<div class="container m-5 pe-3">
+    <h2>Edit Note: </h2>
+    <form method="POST" action="/editNote/<%= note.id %>?_method=PUT">
+        <div class="mb-3 mt-3">
+            <label class="form-label">Title: </label>
+            <input type="text" name="title" class="form-control w-75" value="<%= note.title %>">
+        </div>
+        <div class="mb-3 mt-3">
+            <label class="form-label">Note: </label>
+            <textarea name="note" class="form-control w-75" rows="5"><%= note.note %></textarea>
+        </div>
+        <div class="mb-3 mt-3 row">
+            <div class="col d-inline-flex align-items-center">
+                <label class="form-label pe-2">Color: </label>
+                <select name="color" id="selectColor" class="form-select w-25">
+                    <option value="text-bg-light" <%= note.color === 'text-bg-light' ? 'selected' : '' %>>White</option>
+                    <option value="text-bg-danger" class="text-bg-danger" <%= note.color === 'text-bg-danger' ? 'selected' : '' %>>Red</option>
+                    <option value="text-bg-warning" class="text-bg-warning" <%= note.color === 'text-bg-warning' ? 'selected' : '' %>>Yellow</option>
+                    <option value="text-bg-success" class="text-bg-success" <%= note.color === 'text-bg-success' ? 'selected' : '' %>>Green</option>
+                    <option value="text-bg-primary" class="text-bg-primary" <%= note.color === 'text-bg-primary' ? 'selected' : '' %>>Blue</option>
+                    <option value="text-bg-dark" class="text-bg-dark" <%= note.color === 'text-bg-dark' ? 'selected' : '' %>>Black</option>
+                </select>
+            </div>
+        </div>
+        <a class="btn btn-light" href="getNotes">Cancel</a>
+        <input type="submit" class="btn btn-warning" value="Save">
+    </form>
+</div>
+
+<%- include('partials/_footer') %>

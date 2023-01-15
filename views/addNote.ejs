@@ -1,0 +1,32 @@
+<%- include('partials/_header') %>
+
+<div class="container m-5 pe-3">
+<h2>Add New Note: </h2>
+<form method="POST" action="/addNote">
+    <div class="mb-3 mt-3">
+        <label class="form-label">Title: </label>
+        <input type="text" name="title" class="form-control w-75">
+    </div>
+    <div class="mb-3 mt-3">
+        <label class="form-label">Note: </label>
+        <textarea name="note" class="form-control w-75" rows="5"></textarea>
+    </div>
+    <div class="mb-3 mt-3 row">
+        <div class="col d-inline-flex align-items-center">
+            <label class="form-label pe-2">Color: </label>
+            <select name="color" id="selectColor" class="form-select w-25">
+                <option value="text-bg-light">White</option>
+                <option value="text-bg-danger" class="text-bg-danger">Red</option>
+                <option value="text-bg-warning" class="text-bg-warning">Yellow</option>
+                <option value="text-bg-success" class="text-bg-success">Green</option>
+                <option value="text-bg-primary" class="text-bg-primary">Blue</option>
+                <option value="text-bg-dark" class="text-bg-dark">Black</option>
+            </select>
+        </div>
+    </div>
+    <input type="reset" class="btn btn-light" value="Clear">
+    <input type="submit" class="btn btn-warning" value="Save">
+</form>
+</div>
+
+<%- include('partials/_footer') %>
