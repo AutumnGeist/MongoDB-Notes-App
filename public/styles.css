@@ -5,10 +5,14 @@
 #italic {
     font-style:italic
 }
+.card {
+    width: 24%;
+}
 /* Show line breaks within the note body */
 .card-text {
     white-space: pre-line;
 }
+
 
 
 
