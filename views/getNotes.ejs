@@ -1,10 +1,10 @@
 <!-- Uses Bootstrap Cards to display notes -->
 <%- include('partials/_header') %>
 
-    <h2 class="text-center p-3">All Notes: </h2>
-    <div class="d-flex flex-sm-row flex-wrap ps-3">
+    <h2 class="p-4">Saved Notes: </h2>
+    <div class="d-flex flex-sm-row flex-wrap p-5 pt-0">
         <% notes.forEach(note => { %>
-            <div class="card m-1">
+            <div class="card m-2">
                 <div class="card-header d-flex justify-content-between">
                     <h3 class="card-title"> <%= note.title %> </h3>
                     <p class="align-self-end"> <%= note.createdAt.toDateString() %> </p>

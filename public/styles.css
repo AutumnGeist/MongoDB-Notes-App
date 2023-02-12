@@ -6,7 +6,8 @@
     font-style:italic
 }
 .card {
-    width: 24%;
+    width: 400px;
+    min-height: 300px;
 }
 /* Show line breaks within the note body */
 .card-text {
