@@ -23,11 +23,17 @@ app.use(routes)
 app.use('/public', express.static('public'))
 
 //DB setup
-mongoose.set('strictQuery', true)
-mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true})
-const db = mongoose.connection
-db.on('error', error => console.error(error))
-db.once('open', () => console.log('Connected to Mongoose'))
+const connectDB = async () => {
+    try {
+        mongoose.set('strictQuery', true)
+        mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true})
+        const db = await mongoose.connection
+        db.on('error', error => console.error(error))
+        db.once('open', () => console.log('Connected to Mongoose'))
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 //set view engine to ejs
 app.set('view engine', 'ejs')
@@ -35,7 +41,12 @@ app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 
 //tell app to listen on specific port, for dev testing, set to port 3000
-app.listen(process.env.PORT || 3000)
+connectDB().then(() => {
+    app.listen(process.env.PORT || 3000, () => {
+        console.log("listening for requests")
+    })
+})
+
 
 
 
